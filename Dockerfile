@@ -19,14 +19,13 @@ WORKDIR /app
 # ---- Copy your app code ----
 COPY . .
 
-# ---- Install Python packages ----
+# ---- System + Python dependencies ----
+RUN pip install --upgrade pip
 RUN pip install torch==2.1.0 torchaudio==2.1.0
 RUN pip install flask flask-cors
-RUN pip install av==11.0.0
-RUN pip install git+https://github.com/facebookresearch/audiocraft.git#egg=audiocraft --no-deps
-RUN pip install numpy scipy soundfile einops
-RUN pip install Julius
 RUN pip install av julius omegaconf
+RUN pip install git+https://github.com/facebookresearch/audiocraft.git#egg=audiocraft --no-deps
+RUN pip install xformers==0.0.23.post1
 
 
 # ---- Start the Flask app ----
