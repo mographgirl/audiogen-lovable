@@ -25,7 +25,9 @@ RUN pip install flask flask-cors
 RUN pip install av==11.0.0
 RUN pip install git+https://github.com/facebookresearch/audiocraft.git#egg=audiocraft --no-deps
 RUN pip install numpy scipy soundfile einops
-RUN pip install julius
+RUN pip install Julius
+RUN pip install av julius omegaconf
+
 
 # ---- Start the Flask app ----
 CMD ["python", "app.py"]
